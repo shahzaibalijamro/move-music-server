@@ -13,6 +13,7 @@ const contributorRouter = express.Router();
 contributorRouter.get('/contributors', checkAccessToken, getContributors);
 
 contributorRouter.post('/contributors', checkAccessToken, addContributor);
+
 contributorRouter.get(
     '/contributors/:id',
     checkAccessToken,

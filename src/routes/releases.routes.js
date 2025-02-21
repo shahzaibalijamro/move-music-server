@@ -1,16 +1,32 @@
 import express from "express";
 import { checkAccessToken } from "../middlewares/auth.middelware.js";
-import { addRelease, getAllReleases, updateReleaseStatus } from "../controllers/releases.controllers.js";
+import { 
+    addRelease, 
+    getAllReleases, 
+    getReleaseById, 
+    updateRelease, 
+    editRelease, 
+    updateReleaseStatus 
+} from "../controllers/releases.controllers.js";
 
 const releasesRouter = express.Router();
 
-//get all artists
-releasesRouter.get("/releases/",checkAccessToken,getAllReleases)
+// Get all releases
+releasesRouter.get("/releases/", checkAccessToken, getAllReleases);
 
-//add releases
-releasesRouter.post("/releases/",checkAccessToken,addRelease)
+// Add a new release
+releasesRouter.post("/releases/", checkAccessToken, addRelease);
 
-//update release status
-releasesRouter.post("/releases/update-status/",checkAccessToken,updateReleaseStatus)
+// Update release status (Distribute, Takedown, Submit Editing)
+releasesRouter.post("/releases/update-status/", checkAccessToken, updateReleaseStatus);
 
-export { releasesRouter }
+// Get release by ID
+releasesRouter.get("/releases/:id", checkAccessToken, getReleaseById);
+
+// Update an entire release (PUT)
+releasesRouter.put("/releases/:id", checkAccessToken, updateRelease);
+
+// Edit (partially update) a release (PATCH)
+releasesRouter.patch("/releases/:id", checkAccessToken, editRelease);
+
+export { releasesRouter };

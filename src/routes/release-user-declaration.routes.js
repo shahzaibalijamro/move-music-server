@@ -4,7 +4,7 @@ import { releaseUserDeclaration } from "../controllers/release-user-declaration.
 
 const releaseUserDeclarationRouter = express.Router();
 
-//get all artists
+// release user declaration
 releaseUserDeclarationRouter.post("/release-user-declaration/",checkAccessToken,releaseUserDeclaration)
 
 export { releaseUserDeclarationRouter }
