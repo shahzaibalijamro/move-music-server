@@ -28,7 +28,7 @@ const loginUser = async function (req, res) {
 };
 
 const refreshToken = async function (req, res) {
-    const {refresh} = req.cookies;
+    const {refresh} = req.body;
     if (!refresh) {
         return res.status(401).json({ error: "No refresh token found" });
     }
