@@ -20,7 +20,7 @@ const loginUser = async function (req, res) {
             sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
             maxAge: 3 * 24 * 60 * 60 * 1000
         });
-        res.status(response.status).json({ access });
+        res.status(response.status).json({ access,refresh });
     } catch (error) {
         console.log(error);
         res.status(error.response?.status || 500).json(error.response?.data || { error: "Something went wrong" });

@@ -18,6 +18,7 @@ import { subGenreRouter } from "./src/routes/subgenre.routes.js";
 import { usersRouter } from "./src/routes/users.routes.js";
 import { trackRouter } from "./src/routes/tracks.routes.js";
 import { trendsRouter } from "./src/routes/trends.routes.js";
+import { signedUrlRouter } from "./src/routes/signedUrl.routes.js";
 
 app.use("/api/v1", authRouter)
 app.use("/api/v1", artistRouter)
@@ -36,6 +37,7 @@ app.use("/api/v1", storeUrlRouter)
 app.use("/api/v1", usersRouter)
 app.use("/api/v1", trackRouter)
 app.use("/api/v1", trendsRouter)
+app.use("/api/v1", signedUrlRouter)
 
 app.get("/", (req,res) => {
     res.send("Hello API!")
