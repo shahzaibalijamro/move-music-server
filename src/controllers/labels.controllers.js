@@ -153,7 +153,7 @@ const editLabel = async (req, res) => {
         return res.status(400).json({ error: "No fields to update!" });
     }
     try {
-        const response = await axios.put(
+        const response = await axios.patch(
             `${process.env.MAIN_SERVER_URL}/labels/${id}/`,
             {
                 name,
