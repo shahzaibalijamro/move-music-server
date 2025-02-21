@@ -2,20 +2,19 @@ import axios from 'axios';
 
 const getAllPublishers = async (req, res) => {
     const access_token = req.access_token;
+    const { search, name, page, page_size } = req.query;
     try {
-        const response = await axios.get(
-            `${process.env.MAIN_SERVER_URL}/publishers/`,
-            {
-                headers: {
-                    'x-api-key': process.env.X_API_KEY,
-                    'Referer': process.env.REFERER_URL,
-                    'Authorization': `Bearer ${access_token}`,
-                }
-            }
-        );
+        const response = await axios.get(`${process.env.MAIN_SERVER_URL}/publishers/`, {
+            headers: {
+                'x-api-key': process.env.X_API_KEY,
+                'Referer': process.env.REFERER_URL,
+                'Authorization': `Bearer ${access_token}`,
+            },
+            params: { search, name, page, page_size }
+        });
         res.status(200).json(response.data);
     } catch (error) {
-        console.log(error);
+        console.error("Error fetching publishers:", error);
         res.status(error.response?.status || 500).json(error.response?.data || { error: "Something went wrong" });
     }
 };
