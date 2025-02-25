@@ -32,9 +32,9 @@ const addArtist = async (req, res) => {
         spotify_identifier,
         email
     } = req.body;
-    if (!name || !email || !amazon_music_identifier || !apple_identifier || !deezer_identifier || !spotify_identifier) {
-        return res.status(400).json({ error: "Required fields not recieved!" });
-    }
+    // if (!name || !email || !amazon_music_identifier || !apple_identifier || !deezer_identifier || !spotify_identifier) {
+    //     return res.status(400).json({ error: "Required fields not recieved!" });
+    // }
     try {
         const response = await axios.post(
             `${process.env.MAIN_SERVER_URL}/artists/`,
