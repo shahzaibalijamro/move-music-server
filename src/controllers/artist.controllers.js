@@ -91,11 +91,12 @@ const updateArtist = async (req, res) => {
         apple_identifier,
         deezer_identifier,
         spotify_identifier,
-        email
+        email,
+        contributors
     } = req.body;
-    if (!name && !email && !amazon_music_identifier && !apple_identifier && !deezer_identifier && !spotify_identifier) {
-        return res.status(400).json({ error: "No fields to update!" });
-    }
+    // if (!name && !email && !amazon_music_identifier && !apple_identifier && !deezer_identifier && !spotify_identifier) {
+    //     return res.status(400).json({ error: "No fields to update!" });
+    // }
     try {
         const response = await axios.put(
             `${process.env.MAIN_SERVER_URL}/artists/${id}/`,
@@ -105,7 +106,8 @@ const updateArtist = async (req, res) => {
                 apple_identifier,
                 deezer_identifier,
                 spotify_identifier,
-                email
+                email,
+                contributors
             },
             {
                 headers: {
@@ -131,11 +133,12 @@ const editArtist = async (req, res) => {
         apple_identifier,
         deezer_identifier,
         spotify_identifier,
-        email
+        email,
+        contributors
     } = req.body;
-    if (!name && !email && !amazon_music_identifier && !apple_identifier && !deezer_identifier && !spotify_identifier) {
-        return res.status(400).json({ error: "Required fields not recieved!" });
-    }
+    // if (!name && !email && !amazon_music_identifier && !apple_identifier && !deezer_identifier && !spotify_identifier) {
+    //     return res.status(400).json({ error: "Required fields not recieved!" });
+    // }
     try {
         const response = await axios.patch(
             `${process.env.MAIN_SERVER_URL}/artists/${id}/`,
@@ -145,7 +148,8 @@ const editArtist = async (req, res) => {
                 apple_identifier,
                 deezer_identifier,
                 spotify_identifier,
-                email
+                email,
+                contributors
             },
             {
                 headers: {
