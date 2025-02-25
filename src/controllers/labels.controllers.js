@@ -111,9 +111,9 @@ const updateLabel = async (req, res) => {
         year,
         catalog_num
     } = req.body;
-    if (!name && !logo && !primary_genre && !year && !catalog_num) {
-        return res.status(400).json({ error: "No fields to update!" });
-    }
+    // if (!name && !logo && !primary_genre && !year && !catalog_num) {
+    //     return res.status(400).json({ error: "No fields to update!" });
+    // }
     try {
         const response = await axios.put(
             `${process.env.MAIN_SERVER_URL}/labels/${id}/`,
@@ -149,9 +149,9 @@ const editLabel = async (req, res) => {
         year,
         catalog_num
     } = req.body;
-    if (!name && !logo && !primary_genre && !year && !catalog_num) {
-        return res.status(400).json({ error: "No fields to update!" });
-    }
+    // if (!name && !logo && !primary_genre && !year && !catalog_num) {
+    //     return res.status(400).json({ error: "No fields to update!" });
+    // }
     try {
         const response = await axios.patch(
             `${process.env.MAIN_SERVER_URL}/labels/${id}/`,

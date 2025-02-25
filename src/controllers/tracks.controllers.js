@@ -163,9 +163,9 @@ const updateTrack = async (req, res) => {
     } = req.body;
 
     // Validate required fields
-    if (!release || !name || !language || !vocals || !genre || !subgenre) {
-        return res.status(400).json({ error: "Required fields not received!" });
-    }
+    // if (!release || !name || !language || !vocals || !genre || !subgenre) {
+    //     return res.status(400).json({ error: "Required fields not received!" });
+    // }
 
     try {
         const response = await axios.put(
