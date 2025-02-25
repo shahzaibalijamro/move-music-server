@@ -265,6 +265,7 @@ const editRelease = async (req, res) => {
     const access_token = req.access_token;
     const { id } = req.params; // Extract release ID from URL path
 
+    console.log(id);
     if (!id) {
         return res.status(400).json({ error: "Release ID is required!" });
     }

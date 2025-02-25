@@ -53,9 +53,9 @@ const addTrack = async (req, res) => {
     } = req.body;
 
     // Validate required fields
-    if (!release || !name || !language || !vocals || !genre || !subgenre) {
-        return res.status(400).json({ error: "Required fields not received!" });
-    }
+    // if (!release || !name || !language || !vocals || !genre || !subgenre) {
+    //     return res.status(400).json({ error: "Required fields not received!" });
+    // }
 
     try {
         const response = await axios.post(
@@ -219,16 +219,60 @@ const editTrack = async (req, res) => {
         return res.status(400).json({ error: "Track ID is required" });
     }
 
-    const updatedFields = req.body; // Extract only the fields that need to be updated
-
-    if (Object.keys(updatedFields).length === 0) {
-        return res.status(400).json({ error: "No update fields provided!" });
-    }
+    const {
+        order,
+        release,
+        name,
+        mix_name,
+        language,
+        vocals,
+        artists,
+        publishers,
+        contributors,
+        label_share,
+        genre,
+        subgenre,
+        resource,
+        dolby_atmos_resource,
+        copyright_holder,
+        copyright_holder_year,
+        album_only,
+        sample_start,
+        explicit_content,
+        ISRC,
+        generate_isrc,
+        DA_ISRC,
+        track_length
+    } = req.body;
 
     try {
         const response = await axios.patch(
             `${process.env.MAIN_SERVER_URL}/tracks/${id}/`,
-            updatedFields, // Send only the updated fields
+            {
+                order,
+                release,
+                name,
+                mix_name,
+                language,
+                vocals,
+                artists,
+                publishers,
+                contributors,
+                label_share,
+                genre,
+                subgenre,
+                resource,
+                dolby_atmos_resource,
+                copyright_holder,
+                copyright_holder_year,
+                album_only,
+                sample_start,
+                explicit_content,
+                ISRC,
+                generate_isrc,
+                DA_ISRC,
+                track_length
+            }, // Send only the updated fields
             {
                 headers: {
                     "x-api-key": process.env.X_API_KEY,
