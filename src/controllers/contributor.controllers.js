@@ -4,10 +4,12 @@ import axios from 'axios';
 // Private API
 const getContributors = async (req, res) => {
     const access_token = req.access_token;
+    const { search, name, page, page_size } = req.query;
     try {
         const response = await axios.get(
             `${process.env.MAIN_SERVER_URL}/contributors/`,
             {
+                params: { search, name, page, page_size },
                 headers: {
                     'x-api-key': process.env.X_API_KEY,
                     Referer: process.env.REFERER_URL,
