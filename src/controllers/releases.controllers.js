@@ -53,9 +53,9 @@ const addRelease = async (req, res) => {
     } = req.body;
 
     // Validate required fields
-    if (!name || !language || !label || !genre || !subgenre || !tracks || tracks.length === 0) {
-        return res.status(400).json({ error: "Required fields not received or missing tracks!" });
-    }
+    // if (!name || !language || !label || !genre || !subgenre || !tracks || tracks.length === 0) {
+    //     return res.status(400).json({ error: "Required fields not received or missing tracks!" });
+    // }
 
     try {
         const response = await axios.post(
