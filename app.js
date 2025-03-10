@@ -5,7 +5,7 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-    origin: 'https://move-music-client.vercel.app',
+    origin: 'https://move-music-server.vercel.app',
     credentials: true,
 }));
 export {app}
